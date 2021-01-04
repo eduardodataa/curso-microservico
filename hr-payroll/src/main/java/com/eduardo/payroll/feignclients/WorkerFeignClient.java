@@ -18,7 +18,7 @@ import com.eduardo.payroll.entities.Worker;
 
 // componente gerenciado pelo spring
 @Component
-@FeignClient (name = "hr-worker", url = "localhost:8001", path= "/workers")
+@FeignClient (name = "hr-worker",  path= "/workers")
 public interface WorkerFeignClient {
 
 	@GetMapping(value = "/{id}")
