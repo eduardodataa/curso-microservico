@@ -3,16 +3,12 @@
  */
 package com.eduardo.payroll.service;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
 
 import com.eduardo.payroll.entities.Payment;
 import com.eduardo.payroll.entities.Worker;
+import com.eduardo.payroll.feignclients.WorkerFeignClient;
 
 /**
  * @author user
@@ -22,19 +18,15 @@ import com.eduardo.payroll.entities.Worker;
 @Service
 public class PaymentService {
 	
-	@Value("${hr-worker.host}")
-	private String workerHost;
+	//@Value("${hr-worker.host}")
+	//private String workerHost;
 	
 	@Autowired
-	private RestTemplate restTemplate; 
+	private WorkerFeignClient workerFeignClient; 
 	
 	public Payment getPayment(long workId, int days) {
 		
-		Map<String, Long> uriVariables = new HashMap<>();
-		
-		uriVariables.put("id", workId);
-		
-		Worker worker = restTemplate.getForObject(workerHost + "/workers/{id}", Worker.class, uriVariables);
+		Worker worker = workerFeignClient.findById(workId).getBody();
 		
 		return new Payment(worker.getName(), worker.getDailyIncome(), days);
 	}
