@@ -18,14 +18,14 @@ public class Payment implements Serializable {
 	public Payment() {
 	}
 	
-	public Payment(String name, Double dailyIncome, Integer days) {
+	public Payment(String name, double dailyIncome, int days) {
 		super();
 		this.name = name;
 		this.dailyIncome = dailyIncome;
 		this.days = days;
 	}
 
-	
+
 	public String getName() {
 		return name;
 	}
