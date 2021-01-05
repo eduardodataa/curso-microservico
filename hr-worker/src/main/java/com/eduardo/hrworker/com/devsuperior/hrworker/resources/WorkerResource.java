@@ -48,10 +48,13 @@ public class WorkerResource {
 	public ResponseEntity<Worker> findById(@PathVariable Long id) {
 		
 //		try {
+//			System.out.println("dormindo...");
 //			Thread.sleep(3000L);
 //		} catch (InterruptedException e) {
 //			e.printStackTrace();
 //		}
+
+		System.out.println("Ta passando");
 		
 		//imprime o número da porta que está rodando
 		logger.info("PORT = " + env.getProperty("local.server.port"));
