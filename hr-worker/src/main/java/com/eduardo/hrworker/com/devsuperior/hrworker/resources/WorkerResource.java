@@ -23,7 +23,7 @@ import com.eduardo.hrworker.com.devsuperior.hrworker.repositories.WorkerReposito
 public class WorkerResource {
 	
 	
-	@Value("${test.config}")
+	//@Value("${test.config}")
 	private String testConfig;
 	
 	private static Logger logger = LoggerFactory.getLogger(WorkerResource.class);
