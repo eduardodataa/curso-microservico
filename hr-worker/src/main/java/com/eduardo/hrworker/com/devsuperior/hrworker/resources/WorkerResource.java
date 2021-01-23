@@ -51,7 +51,7 @@ public class WorkerResource {
 		
 		try {
 			System.out.println("dormindo...");
-			Thread.sleep(3000L);
+			Thread.sleep(000L);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
